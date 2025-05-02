@@ -43,7 +43,7 @@ window.onload = function () {
     const overlay = new ol.Overlay({
         element: popup,
         positioning: 'bottom-center',
-        stopEvent: false
+        stopEvent: true
     });
     map.addOverlay(overlay);
 
