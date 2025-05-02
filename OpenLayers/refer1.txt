@@ -1,0 +1,40 @@
+    map.on('click', function (event) {
+        overlay.setPosition(undefined);
+        popup.style.display = 'none';
+
+        map.forEachFeatureAtPixel(event.pixel, function (feature) {
+            const properties = feature.getProperties();
+            const currentClass = properties.predicted_class;
+            const imageName = properties.image_name;
+            const isEditable = document.getElementById("enableEditingCheckbox")?.checked;
+            const imageToggleValue = document.getElementById("imageToggle").value;
+            const imagePath = imageToggleValue === "real"
+            ? `data/images/${imageName}`
+            : `icons/${currentClass.toLowerCase().replace(/\s/g, "_")}.png`;
+
+
+            popup.innerHTML = `
+                <strong>Sign:</strong>
+                ${isEditable
+                    ? `<input type="text" id="editClass" value="${currentClass}" style="width: 120px;"><br>`
+                    : `<span>${currentClass}</span><br>`
+                }
+                <img src="${imagePath}" alt="${currentClass}" width="100"><br>
+                ${isEditable
+                    ? `<button id="updateClassBtn">Update</button>`
+                    : ``
+                }
+            `;
+            overlay.setPosition(event.coordinate);
+            popup.style.display = 'block';
+
+            if (isEditable) {
+                document.getElementById("updateClassBtn").onclick = () => {
+                    const newClass = document.getElementById("editClass").value;
+                    feature.set('predicted_class', newClass);
+                    vectorSource.changed();
+                    popup.style.display = 'none';
+                };
+            }
+        });
+    });

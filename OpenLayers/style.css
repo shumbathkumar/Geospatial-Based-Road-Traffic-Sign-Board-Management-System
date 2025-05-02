@@ -1,0 +1,39 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.popup {
+    background: white;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: 14px;
+    position: absolute;
+    display: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.popup strong {
+    font-weight: bold;
+    color: #d9534f;
+}
+
+#controls-container {
+    padding: 10px;
+    background-color: #f8f8f8;
+    z-index: 1000;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}

@@ -1,5 +1,5 @@
 ClassId,Name
-0,Give way
+0,Pedestrian crossing
 1,No entry
 2,One-way traffic
 3,One-way traffic
@@ -10,15 +10,15 @@ ClassId,Name
 8,No entry for bullock carts
 9,No entry for hand carts
 10,No entry for motor vehicles
-11,Height limit
-12,Weight limit
-13,Axle weight limit
-14,Length limit
+11,Parking
+12,Guarded level crossing ahead
+13,Unguarded level crossing ahead
+14,Roundabout
 15,No left turn
 16,No right turn
 17,No overtaking
-18,Maximum speed limit (90 km/h)
-19,Maximum speed limit (110 km/h)
+18,Speed limit 30
+19,Speed limit 20
 20,Horn prohibited
 21,No parking
 22,No stopping
@@ -38,22 +38,13 @@ ClassId,Name
 36,Side road junction
 37,Side road junction
 38,Oblique side road junction
-39,Refreshments
+39,Double Bend
 40,T-junction
 41,Y-junction
 42,Staggered side road junction
 43,Staggered side road junction
-44,Roundabout
-45,Guarded level crossing ahead
-46,Unguarded level crossing ahead
-47,Level crossing countdown marker
-48,Level crossing countdown marker
-49,Level crossing countdown marker
-50,Level crossing countdown marker
-51,Parking
-52,Bus stop
-53,First aid post
-54,Telephone
-55,Filling station
-56,Hotel
-57,Restaurant
+44,Cycle Parking
+45,Scooter and Motorcycle Parking
+46,Car Parking
+47,Bus Parking
+48,Gap in median

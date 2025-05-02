@@ -1,0 +1,2069 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529773,
+          17.98801900000001
+        ]
+      },
+      "properties": {
+        "image_name": "16d77d47-16ba-44d7-bc7f-1d3e0463fbe3_1746087661.jpg",
+        "predicted_class": "No parking",
+        "class_index": 31,
+        "timestamp": "2025-05-01T08:21:08.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529731,
+          17.988020000000006
+        ]
+      },
+      "properties": {
+        "image_name": "f0c94488-135f-48a2-a805-8955816f0bcf_1746087604.jpg",
+        "predicted_class": "Speed limit 30",
+        "class_index": 5,
+        "timestamp": "2025-05-01T08:20:26.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.525669,
+          17.986433000000005
+        ]
+      },
+      "properties": {
+        "image_name": "0af0716b-7745-4ac7-a25e-821833d2d152_1746087440.jpg",
+        "predicted_class": "No parking",
+        "class_index": 17,
+        "timestamp": "2025-05-01T08:17:27.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.525083,
+          17.986034000000004
+        ]
+      },
+      "properties": {
+        "image_name": "3ffe1a77-ea58-44f2-8a2c-ecd2c66f3ee8_1746087381.jpg",
+        "predicted_class": "No parking",
+        "class_index": 5,
+        "timestamp": "2025-05-01T08:16:28.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.524809,
+          17.98601499999998
+        ]
+      },
+      "properties": {
+        "image_name": "6f78a597-2df8-4b34-92ba-41da7b76c981_1746087357.jpg",
+        "predicted_class": "Speed limit 30",
+        "class_index": 31,
+        "timestamp": "2025-05-01T08:16:03.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52466,
+          17.985957
+        ]
+      },
+      "properties": {
+        "image_name": "42ca2ddc-a665-4656-9087-7d7344ebf8a0_1746087314.jpg",
+        "predicted_class": "Side road junction",
+        "class_index": 36,
+        "timestamp": "2025-05-01T08:15:21.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.524393,
+          17.985906
+        ]
+      },
+      "properties": {
+        "image_name": "0cb724ee-2947-4b6d-a32f-50f8846f5174_1746087270.jpg",
+        "predicted_class": "No entry for motor vehicles",
+        "class_index": 10,
+        "timestamp": "2025-05-01T08:14:36.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.524019,
+          17.985732
+        ]
+      },
+      "properties": {
+        "image_name": "541aef95-be31-4b96-b0ed-a380f64e1107_1746087244.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 23,
+        "timestamp": "2025-05-01T08:14:11.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52233699999998,
+          17.984702999999996
+        ]
+      },
+      "properties": {
+        "image_name": "54d92835-1baa-4d0e-a312-ef58865fd515_1746087148.jpg",
+        "predicted_class": "Speed limit 30",
+        "class_index": 30,
+        "timestamp": "2025-05-01T08:12:34.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.51540299999999,
+          17.980103999999997
+        ]
+      },
+      "properties": {
+        "image_name": "09745872-37ba-4b05-a124-970d3d065c39_1746086775.jpg",
+        "predicted_class": "No right turn",
+        "class_index": 31,
+        "timestamp": "2025-05-01T08:06:23.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.51518599999999,
+          17.980114999999998
+        ]
+      },
+      "properties": {
+        "image_name": "a294b194-90a9-4c77-906e-01a7d0820651_1746086684.jpg",
+        "predicted_class": "Speed limit 30",
+        "class_index": 31,
+        "timestamp": "2025-05-01T08:04:51.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.515366,
+          17.980109999999996
+        ]
+      },
+      "properties": {
+        "image_name": "96d2a7fd-c478-4722-979f-6dea83fd364d_1746086650.jpg",
+        "predicted_class": "Narrow bridge",
+        "class_index": 22,
+        "timestamp": "2025-05-01T08:04:18.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.513165,
+          17.978582000000003
+        ]
+      },
+      "properties": {
+        "image_name": "5c90c6fc-0bec-43fc-b590-f62d316f9cb7_1746086541.jpg",
+        "predicted_class": "No entry for cycles",
+        "class_index": 5,
+        "timestamp": "2025-05-01T08:02:29.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.51295,
+          17.978684
+        ]
+      },
+      "properties": {
+        "image_name": "e72a8c6e-6a0a-455d-838b-08962c6bda8b_1746086508.jpg",
+        "predicted_class": "Loose gravel",
+        "class_index": 32,
+        "timestamp": "2025-05-01T08:02:08.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.510492,
+          17.976598999999993
+        ]
+      },
+      "properties": {
+        "image_name": "80170fed-d45f-43a7-8a06-3023a7cc7d42_1746086245.jpg",
+        "predicted_class": "No entry for bullock carts",
+        "class_index": 8,
+        "timestamp": "2025-05-01T07:57:31.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.51048600000001,
+          17.976563
+        ]
+      },
+      "properties": {
+        "image_name": "55050a6e-5c7c-44f0-804a-976104ac4f64_1746086193.jpg",
+        "predicted_class": "Speed limit 30",
+        "class_index": 31,
+        "timestamp": "2025-05-01T07:56:41.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.510659,
+          17.976966000000004
+        ]
+      },
+      "properties": {
+        "image_name": "d84e63fb-bcbe-4d9c-a34e-5725167e4c43_1746086078.jpg",
+        "predicted_class": "Horn prohibited",
+        "class_index": 20,
+        "timestamp": "2025-05-01T07:54:44.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52334499999999,
+          17.98537299999998
+        ]
+      },
+      "properties": {
+        "image_name": "b39089b6-dd60-477f-8d40-5d287e4efaff_1746085113.jpg",
+        "predicted_class": "Speed limit 30",
+        "class_index": 31,
+        "timestamp": "2025-05-01T07:38:42.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.525546,
+          17.986276999999987
+        ]
+      },
+      "properties": {
+        "image_name": "89bcd4be-9e67-467b-9172-d2dbe8b65327_1746084949.jpg",
+        "predicted_class": "No entry for bullock carts",
+        "class_index": 8,
+        "timestamp": "2025-05-01T07:35:59.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.525902,
+          17.986474
+        ]
+      },
+      "properties": {
+        "image_name": "d487d5f0-9dd9-4972-92f5-55fccd916039_1746084910.jpg",
+        "predicted_class": "No parking",
+        "class_index": 9,
+        "timestamp": "2025-05-01T07:35:17.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.526163,
+          17.986632
+        ]
+      },
+      "properties": {
+        "image_name": "14542714-a2d2-454b-978d-aee861ce717f_1746084869.jpg",
+        "predicted_class": "No parking",
+        "class_index": 5,
+        "timestamp": "2025-05-01T07:34:37.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.526321,
+          17.98662300000001
+        ]
+      },
+      "properties": {
+        "image_name": "c78a2432-4b93-4749-a509-e06813c007fa_1746084826.jpg",
+        "predicted_class": "No parking",
+        "class_index": 21,
+        "timestamp": "2025-05-01T07:33:53.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53049700000001,
+          17.988603999999995
+        ]
+      },
+      "properties": {
+        "image_name": "74f8f0e0-d957-4929-9c3b-421b6b63fccc_1746084170.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 31,
+        "timestamp": "2025-05-01T07:22:57.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532452,
+          17.98944399999999
+        ]
+      },
+      "properties": {
+        "image_name": "bacd9789-6f48-43e4-9a22-53a8cffc2304_1746084039.jpg",
+        "predicted_class": "No entry for cycles",
+        "class_index": 5,
+        "timestamp": "2025-05-01T07:20:45.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532443,
+          17.98945000000002
+        ]
+      },
+      "properties": {
+        "image_name": "c9701331-1b77-43da-b042-d37dc88ea047_1746083995.jpg",
+        "predicted_class": "No parking",
+        "class_index": 2,
+        "timestamp": "2025-05-01T07:20:20.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53244600000001,
+          17.989643
+        ]
+      },
+      "properties": {
+        "image_name": "3a5da2c0-9cd3-4416-b97e-a027234923e1_1746083950.jpg",
+        "predicted_class": "No parking",
+        "class_index": 20,
+        "timestamp": "2025-05-01T07:19:19.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53272000000001,
+          17.989697000000007
+        ]
+      },
+      "properties": {
+        "image_name": "80ed3fd2-940b-4943-b6be-e6dcf68a7940_1746083906.jpg",
+        "predicted_class": "No parking",
+        "class_index": 9,
+        "timestamp": "2025-05-01T07:18:32.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532202,
+          17.989262999999994
+        ]
+      },
+      "properties": {
+        "image_name": "1b9ce6ad-ad97-40f0-96fd-96363e818d8f_1746083810.jpg",
+        "predicted_class": "No parking",
+        "class_index": 17,
+        "timestamp": "2025-05-01T07:16:59.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532449,
+          17.989259000000004
+        ]
+      },
+      "properties": {
+        "image_name": "94621b90-f9f7-470f-9f84-873ede1ec413_1746083757.jpg",
+        "predicted_class": "No parking",
+        "class_index": 3,
+        "timestamp": "2025-05-01T07:16:07.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532298,
+          17.989092000000014
+        ]
+      },
+      "properties": {
+        "image_name": "8d4a91c8-e595-4fc9-8fa3-59e4315d68bd_1746083669.jpg",
+        "predicted_class": "No parking",
+        "class_index": 9,
+        "timestamp": "2025-05-01T07:14:36.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.531729,
+          17.988895
+        ]
+      },
+      "properties": {
+        "image_name": "9d8d3821-33f7-4783-8327-4d9f74f311cf_1746083618.jpg",
+        "predicted_class": "No parking",
+        "class_index": 5,
+        "timestamp": "2025-05-01T07:13:44.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530851,
+          17.988425000000007
+        ]
+      },
+      "properties": {
+        "image_name": "9f349bf3-2660-4b74-bde2-91d30cf75190_1746083532.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 5,
+        "timestamp": "2025-05-01T07:12:19.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.531465,
+          17.984938
+        ]
+      },
+      "properties": {
+        "image_name": "53ed00ce-2add-4dcb-8e55-dcce23ac7154_1744969484.jpg",
+        "predicted_class": "Double Bend",
+        "class_index": 14,
+        "timestamp": "2025-04-18T09:44:51.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.531424,
+          17.984966000000014
+        ]
+      },
+      "properties": {
+        "image_name": "e4a077ca-fcd8-4f04-bf42-526de4204794_1744969425.jpg",
+        "predicted_class": "No parking",
+        "class_index": 21,
+        "timestamp": "2025-04-18T09:43:51.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53077700000001,
+          17.985355
+        ]
+      },
+      "properties": {
+        "image_name": "60faaf0c-e0b8-4187-8edd-dbf6f793264a_1744969371.jpg",
+        "predicted_class": "Oblique side road junction",
+        "class_index": 22,
+        "timestamp": "2025-04-18T09:42:59.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530914,
+          17.985529
+        ]
+      },
+      "properties": {
+        "image_name": "905e87fc-f6dc-4b37-8014-1d4373b74852_1744969314.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-18T09:42:01.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53087399999998,
+          17.985546999999997
+        ]
+      },
+      "properties": {
+        "image_name": "3cee583d-d335-4a5e-ae4d-5178a35103e0_1744969269.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 11,
+        "timestamp": "2025-04-18T09:41:18.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530826,
+          17.985556000000003
+        ]
+      },
+      "properties": {
+        "image_name": "2cd95785-8203-4efd-950c-83001e8e6776_1744969238.jpg",
+        "predicted_class": "Cycle Parking",
+        "class_index": 31,
+        "timestamp": "2025-04-18T09:40:50.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530783,
+          17.985625999999996
+        ]
+      },
+      "properties": {
+        "image_name": "6bdc4499-4025-456a-b6eb-129491333a67_1744969207.jpg",
+        "predicted_class": "Double Bend",
+        "class_index": 31,
+        "timestamp": "2025-04-18T09:40:18.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530626,
+          17.985743999999997
+        ]
+      },
+      "properties": {
+        "image_name": "edde46c3-cde7-4f5f-be82-890251797c1a_1744969175.jpg",
+        "predicted_class": "No parking",
+        "class_index": 5,
+        "timestamp": "2025-04-18T09:39:44.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530097,
+          17.987414
+        ]
+      },
+      "properties": {
+        "image_name": "b9c2c1b0-47e4-49eb-8faa-4d1b7f4347e9_1744968920.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-18T09:35:28.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529851,
+          17.987407000000005
+        ]
+      },
+      "properties": {
+        "image_name": "2e314e7f-fd36-4bd6-8523-bea4be78966b_1744968887.jpg",
+        "predicted_class": "Roundabout",
+        "class_index": 14,
+        "timestamp": "2025-04-18T09:34:55.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52951799999998,
+          17.987189
+        ]
+      },
+      "properties": {
+        "image_name": "f2a38fb7-1404-4251-8bde-963f3ead2127_1744968844.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 10,
+        "timestamp": "2025-04-18T09:34:12.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.527887,
+          17.985311999999993
+        ]
+      },
+      "properties": {
+        "image_name": "e2d1e400-93eb-49e6-8838-15a452cd9260_1744968720.jpg",
+        "predicted_class": "Turn left",
+        "class_index": 23,
+        "timestamp": "2025-04-18T09:32:07.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529634,
+          17.98405199999999
+        ]
+      },
+      "properties": {
+        "image_name": "9491be54-aa58-45a7-b9ec-f2aeb107cc88_1744968521.jpg",
+        "predicted_class": "No parking",
+        "class_index": 5,
+        "timestamp": "2025-04-18T09:28:48.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529685,
+          17.98395100000002
+        ]
+      },
+      "properties": {
+        "image_name": "13a23468-79d7-42db-8db4-845419cd44f9_1744968488.jpg",
+        "predicted_class": "No overtaking",
+        "class_index": 17,
+        "timestamp": "2025-04-18T09:28:23.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52964099999998,
+          17.983814999999993
+        ]
+      },
+      "properties": {
+        "image_name": "063f5164-8ad8-4d1d-ae39-1db140170bc4_1744968453.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-18T09:27:40.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529685,
+          17.983848999999992
+        ]
+      },
+      "properties": {
+        "image_name": "3feb25b3-2a59-4dfe-83c7-24fcc0520e3d_1744968417.jpg",
+        "predicted_class": "No parking",
+        "class_index": 20,
+        "timestamp": "2025-04-18T09:27:06.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52981199999999,
+          17.98388
+        ]
+      },
+      "properties": {
+        "image_name": "a7868b29-d669-4482-b8b4-60d4259ebe2a_1744968354.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 17,
+        "timestamp": "2025-04-18T09:26:01.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529674,
+          17.983779
+        ]
+      },
+      "properties": {
+        "image_name": "3bce4f9f-f316-4e0d-a9cb-aa3e41ab9e15_1744968309.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-18T09:25:20.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529653,
+          17.983329999999995
+        ]
+      },
+      "properties": {
+        "image_name": "34893741-7805-4992-8b31-0f6bf328a704_1744968246.jpg",
+        "predicted_class": "Horn prohibited",
+        "class_index": 20,
+        "timestamp": "2025-04-18T09:24:14.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529158,
+          17.983326000000005
+        ]
+      },
+      "properties": {
+        "image_name": "e613de31-0546-47ce-8eb9-3e5d29ea4c55_1744967900.jpg",
+        "predicted_class": "Scooter and Motorcycle ParkingScooter and Motorcycle Parking",
+        "class_index": 10,
+        "timestamp": "2025-04-18T09:18:27.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52916699999999,
+          17.983306
+        ]
+      },
+      "properties": {
+        "image_name": "c68574d3-82b2-41bb-ab5c-147a54751225_1744967835.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 11,
+        "timestamp": "2025-04-18T09:17:36.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52941,
+          17.983142
+        ]
+      },
+      "properties": {
+        "image_name": "be1d4af0-9299-4fcf-8a0f-6f5129ebaee3_1744967775.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 11,
+        "timestamp": "2025-04-18T09:16:25.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529593,
+          17.983297000000007
+        ]
+      },
+      "properties": {
+        "image_name": "bc1795bf-b8bb-43e4-9262-68d43d8fdc87_1744967723.jpg",
+        "predicted_class": "Scooter and Motorcycle Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-18T09:15:59.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52947999999999,
+          17.983328999999998
+        ]
+      },
+      "properties": {
+        "image_name": "8c264e5f-6081-47e5-a5d1-188e8726dd99_1744967702.jpg",
+        "predicted_class": "Horn prohibited",
+        "class_index": 5,
+        "timestamp": "2025-04-18T09:15:09.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52946599999999,
+          17.983177999999995
+        ]
+      },
+      "properties": {
+        "image_name": "4f691395-1acd-434e-9705-67f164eb3099_1744967671.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 30,
+        "timestamp": "2025-04-18T09:14:40.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529497,
+          17.98257100000002
+        ]
+      },
+      "properties": {
+        "image_name": "22eefd97-c7fc-4bac-af45-5effe57d83e7_1744967607.jpg",
+        "predicted_class": "Cycle Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-18T09:13:37.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529582,
+          17.982113
+        ]
+      },
+      "properties": {
+        "image_name": "3ad0ff6f-35ce-492b-9503-ca84eb87ef34_1744967553.jpg",
+        "predicted_class": "Scooter and Motorcycle Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-18T09:12:40.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52963499999998,
+          17.982017
+        ]
+      },
+      "properties": {
+        "image_name": "5eff2ab6-9529-46d4-b04b-0c02380fb172_1744967487.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 21,
+        "timestamp": "2025-04-18T09:11:34.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52963800000002,
+          17.981862000000007
+        ]
+      },
+      "properties": {
+        "image_name": "15bd77bc-c197-4ff8-8462-200bd5a6ec3d_1744967432.jpg",
+        "predicted_class": "No overtaking",
+        "class_index": 17,
+        "timestamp": "2025-04-18T09:10:54.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530735,
+          17.982686000000015
+        ]
+      },
+      "properties": {
+        "image_name": "e07da397-f371-49bc-a922-5555fb553892_1744967284.jpg",
+        "predicted_class": "Scooter and Motorcycle Parking",
+        "class_index": 11,
+        "timestamp": "2025-04-18T09:08:10.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53079800000002,
+          17.982709000000014
+        ]
+      },
+      "properties": {
+        "image_name": "4495915a-6fa6-4b04-83fd-9f57995ede7b_1744967246.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-18T09:07:32.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53092099999999,
+          17.982808000000006
+        ]
+      },
+      "properties": {
+        "image_name": "1586c602-e3de-47bd-952d-58aa03284721_1744967207.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-18T09:06:54.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5309,
+          17.982805000000013
+        ]
+      },
+      "properties": {
+        "image_name": "92868b92-2cc8-4ee9-8a89-2b79bac7321f_1744967168.jpg",
+        "predicted_class": "Scooter and Motorcycle Parking",
+        "class_index": 11,
+        "timestamp": "2025-04-18T09:06:16.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53593500000001,
+          17.983861000000005
+        ]
+      },
+      "properties": {
+        "image_name": "664cff18-cfdc-4bcd-bdb3-2bb1528c93d9_1744880585.jpg",
+        "predicted_class": "No Parking",
+        "class_index": 5,
+        "timestamp": "2025-04-17T09:03:17.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53289099999999,
+          17.983484000000004
+        ]
+      },
+      "properties": {
+        "image_name": "d7610699-9869-4e37-ae61-5f47e0f0db9d_1744875716.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-17T07:42:06.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53298900000001,
+          17.983595000000008
+        ]
+      },
+      "properties": {
+        "image_name": "38919480-3fb5-41b1-8828-3bb0c111f9aa_1744875687.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-17T07:41:35.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532788,
+          17.98356100000001
+        ]
+      },
+      "properties": {
+        "image_name": "3cc4093c-cf3f-4a6c-929c-3dd0888d6e92_1744875636.jpg",
+        "predicted_class": "Scooter and Motorcycle Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-17T07:40:43.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532822,
+          17.983523000000005
+        ]
+      },
+      "properties": {
+        "image_name": "5c3c11cd-0e3f-44ec-bc45-1320b00b7527_1744875603.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-17T07:40:10.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532195,
+          17.983445000000003
+        ]
+      },
+      "properties": {
+        "image_name": "93997e35-f501-4334-82d1-921f35e753f8_1744875552.jpg",
+        "predicted_class": "Bus Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-17T07:39:21.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53249099999998,
+          17.98338200000002
+        ]
+      },
+      "properties": {
+        "image_name": "ae5059e5-1e6a-4838-8b63-f24157cdb349_1744875487.jpg",
+        "predicted_class": "Cycle Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-17T07:38:19.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53207600000002,
+          17.98377400000001
+        ]
+      },
+      "properties": {
+        "image_name": "755c68d5-aef4-49fd-8d03-45a6e3d3cd4a_1744875398.jpg",
+        "predicted_class": "Cycle Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-17T07:36:45.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.531978,
+          17.983598999999998
+        ]
+      },
+      "properties": {
+        "image_name": "d1ca7b22-3c8d-4050-8276-0ee531d65220_1744875331.jpg",
+        "predicted_class": "Cycle Parking",
+        "class_index": 11,
+        "timestamp": "2025-04-17T07:35:46.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.531982,
+          17.983700999999996
+        ]
+      },
+      "properties": {
+        "image_name": "4f8a0d40-be31-4103-8755-69303e5918cb_1744875278.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-17T07:34:48.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530727,
+          17.988073999999997
+        ]
+      },
+      "properties": {
+        "image_name": "974b7b59-6640-4a5a-9725-46d1f226b05d_1744811032.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 31,
+        "timestamp": "2025-04-16T13:44:18.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530386,
+          17.98814999999999
+        ]
+      },
+      "properties": {
+        "image_name": "be6183ef-5b90-42d1-931c-1a4101452c2b_1744810970.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-16T13:43:02.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530586,
+          17.988073000000014
+        ]
+      },
+      "properties": {
+        "image_name": "10fdf63f-1487-4d47-87f1-08e8be6dc4dd_1744810931.jpg",
+        "predicted_class": "Scooter and Motorcycle Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-16T13:42:28.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530532,
+          17.988084
+        ]
+      },
+      "properties": {
+        "image_name": "1004bd60-72b7-4192-a202-1c0034e28f04_1744810880.jpg",
+        "predicted_class": "Cycle Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-16T13:41:51.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530543,
+          17.988062999999997
+        ]
+      },
+      "properties": {
+        "image_name": "88d7a2d9-e45c-49c5-ad83-8ee78c0961b7_1744810841.jpg",
+        "predicted_class": "No parking",
+        "class_index": 5,
+        "timestamp": "2025-04-16T13:41:02.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53063500000002,
+          17.988006999999982
+        ]
+      },
+      "properties": {
+        "image_name": "c0d669b5-709e-4974-b8fe-e4e2a95b8b63_1744810803.jpg",
+        "predicted_class": "No entry for cycles",
+        "class_index": 5,
+        "timestamp": "2025-04-16T13:40:21.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530816,
+          17.98808199999999
+        ]
+      },
+      "properties": {
+        "image_name": "044577e9-f989-48e8-8079-f852ab02dd69_1744810758.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 11,
+        "timestamp": "2025-04-16T13:39:37.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530689,
+          17.987877999999995
+        ]
+      },
+      "properties": {
+        "image_name": "a6e67466-3273-44dc-881c-4d72b7c61462_1744810719.jpg",
+        "predicted_class": "Roundabout",
+        "class_index": 14,
+        "timestamp": "2025-04-16T13:38:59.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530749,
+          17.98772299999999
+        ]
+      },
+      "properties": {
+        "image_name": "5a1b14c2-e45f-4e43-9522-d1f7ade2b0b1_1744810656.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 20,
+        "timestamp": "2025-04-16T13:37:50.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53073,
+          17.986503
+        ]
+      },
+      "properties": {
+        "image_name": "e2481394-9a70-4466-a7e0-f6d5e9a4a7ae_1744810572.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 22,
+        "timestamp": "2025-04-16T13:36:28.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530726,
+          17.987099
+        ]
+      },
+      "properties": {
+        "image_name": "1b54b657-5e65-4236-89cc-20cb1df27682_1744810538.jpg",
+        "predicted_class": "Roundabout",
+        "class_index": 20,
+        "timestamp": "2025-04-16T13:35:59.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53059499999999,
+          17.986884000000003
+        ]
+      },
+      "properties": {
+        "image_name": "4df1d0bd-42e2-4d30-9efa-4d73f8a83dd4_1744810509.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 24,
+        "timestamp": "2025-04-16T13:35:19.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53075799999999,
+          17.986751999999996
+        ]
+      },
+      "properties": {
+        "image_name": "b5f21ed3-8d2e-4a02-84fd-5c5dc276581a_1744810453.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-16T13:34:36.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53066000000001,
+          17.986419999999995
+        ]
+      },
+      "properties": {
+        "image_name": "745c5b86-4a31-4b1b-b916-12d09ea367a8_1744810394.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-16T13:33:34.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530708,
+          17.985926000000006
+        ]
+      },
+      "properties": {
+        "image_name": "ff25ef3e-b833-4581-b1f7-55146d2c449c_1744808689.jpg",
+        "predicted_class": "Y-junction",
+        "class_index": 20,
+        "timestamp": "2025-04-16T13:05:12.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530528,
+          17.985641
+        ]
+      },
+      "properties": {
+        "image_name": "5b05b478-9b50-4a40-94a8-15c247baa341_1744808631.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 20,
+        "timestamp": "2025-04-16T13:04:12.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530619,
+          17.985535999999996
+        ]
+      },
+      "properties": {
+        "image_name": "777ba6b8-d322-4d81-8a52-c1c30a7c75bc_1744808563.jpg",
+        "predicted_class": "Oblique side road junction",
+        "class_index": 3,
+        "timestamp": "2025-04-16T13:03:05.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530211,
+          17.985330000000005
+        ]
+      },
+      "properties": {
+        "image_name": "527e058e-8533-4c94-bba0-0bad43ba3d3a_1744808510.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 31,
+        "timestamp": "2025-04-16T13:02:06.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530297,
+          17.985085999999995
+        ]
+      },
+      "properties": {
+        "image_name": "71c38209-f506-40f4-8998-82decb0d2634_1744808476.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 5,
+        "timestamp": "2025-04-16T13:01:30.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530304,
+          17.985009000000005
+        ]
+      },
+      "properties": {
+        "image_name": "1a5619b9-7256-41ad-a8ac-064340bc0992_1744808416.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-16T13:00:48.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530135,
+          17.98485799999999
+        ]
+      },
+      "properties": {
+        "image_name": "964ee79a-62e9-4d5f-b283-ee2cab9f6729_1744808375.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 5,
+        "timestamp": "2025-04-16T12:59:53.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530145,
+          17.98481199999999
+        ]
+      },
+      "properties": {
+        "image_name": "facf18f8-fd76-428e-bd57-468885b71c82_1744808317.jpg",
+        "predicted_class": "Side road junction",
+        "class_index": 5,
+        "timestamp": "2025-04-16T12:59:12.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52978499999999,
+          17.984485000000006
+        ]
+      },
+      "properties": {
+        "image_name": "f9926ff5-37dd-4704-acbe-34d43443acae_1744808240.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 14,
+        "timestamp": "2025-04-16T12:57:45.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529782,
+          17.984389000000007
+        ]
+      },
+      "properties": {
+        "image_name": "66c92495-deda-44aa-b45a-2c066bdeef63_1744808185.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 30,
+        "timestamp": "2025-04-16T12:56:47.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529567,
+          17.984450999999993
+        ]
+      },
+      "properties": {
+        "image_name": "fdc7eec0-16e4-45ae-8bd3-28ae14d6ff2a_1744808131.jpg",
+        "predicted_class": "Side road junction",
+        "class_index": 31,
+        "timestamp": "2025-04-16T12:56:00.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529577,
+          17.98419299999999
+        ]
+      },
+      "properties": {
+        "image_name": "81b5ced8-6fb5-40be-b615-ab6a1f16152a_1744808057.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-16T12:54:52.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529261,
+          17.984062999999992
+        ]
+      },
+      "properties": {
+        "image_name": "9b7bd892-9acf-45e2-894d-297cb96da67f_1744807969.jpg",
+        "predicted_class": "No parking",
+        "class_index": 5,
+        "timestamp": "2025-04-16T12:53:36.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529995,
+          17.981246999999982
+        ]
+      },
+      "properties": {
+        "image_name": "86a1d397-c9a1-4f01-9622-81f74cefc88b_1744805021.jpg",
+        "predicted_class": "Horn prohibited",
+        "class_index": 20,
+        "timestamp": "2025-04-16T12:03:48.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529732,
+          17.981338999999977
+        ]
+      },
+      "properties": {
+        "image_name": "82775691-af09-42ac-b379-5567ab1e6de4_1744804984.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-16T12:03:14.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.529876,
+          17.981185999999994
+        ]
+      },
+      "properties": {
+        "image_name": "ac0e7fa0-9845-4448-9295-29675fb739cb_1744804938.jpg",
+        "predicted_class": "No parking",
+        "class_index": 20,
+        "timestamp": "2025-04-16T12:02:31.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.52998599999998,
+          17.981142000000006
+        ]
+      },
+      "properties": {
+        "image_name": "52d3bb06-867c-4a74-a426-37531a5d3871_1744804903.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 10,
+        "timestamp": "2025-04-16T12:01:50.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53000699999998,
+          17.981126000000003
+        ]
+      },
+      "properties": {
+        "image_name": "e6c4ea39-87bb-4a76-84ad-60c793168d92_1744804847.jpg",
+        "predicted_class": "Scooter and Motorcycle Parking",
+        "class_index": 11,
+        "timestamp": "2025-04-16T12:00:56.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530063,
+          17.981234999999998
+        ]
+      },
+      "properties": {
+        "image_name": "d6a2d968-9050-4d0a-a404-9cdb194d992e_1744804812.jpg",
+        "predicted_class": "Horn prohibited",
+        "class_index": 20,
+        "timestamp": "2025-04-16T12:00:23.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530211,
+          17.981336999999996
+        ]
+      },
+      "properties": {
+        "image_name": "26667eac-505a-482e-8827-29faf5db76ad_1744804772.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 5,
+        "timestamp": "2025-04-16T11:59:45.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53068700000001,
+          17.981156999999996
+        ]
+      },
+      "properties": {
+        "image_name": "e8e8997a-6b1a-4c78-9ef6-dfa29fd1bce1_1744804725.jpg",
+        "predicted_class": "No overtaking",
+        "class_index": 17,
+        "timestamp": "2025-04-16T11:58:52.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530783,
+          17.981056999999993
+        ]
+      },
+      "properties": {
+        "image_name": "d7735222-6755-4e78-ba50-4abb9f503ee1_1744804677.jpg",
+        "predicted_class": "Side road junction",
+        "class_index": 5,
+        "timestamp": "2025-04-16T11:58:04.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.530924,
+          17.981097000000005
+        ]
+      },
+      "properties": {
+        "image_name": "dacc605e-e065-4dbd-bfb7-f482984ce5d6_1744804638.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 11,
+        "timestamp": "2025-04-16T11:57:27.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53197599999999,
+          17.980635000000007
+        ]
+      },
+      "properties": {
+        "image_name": "18ebe918-defb-45ca-96d3-6f4bd739b1d1_1744804492.jpg",
+        "predicted_class": "Side road junction",
+        "class_index": 5,
+        "timestamp": "2025-04-16T11:55:00.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.531901,
+          17.980800000000002
+        ]
+      },
+      "properties": {
+        "image_name": "24fc8c3b-0777-477e-921b-ceb1ac7e987a_1744804398.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-16T11:53:25.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53176099999999,
+          17.981587000000005
+        ]
+      },
+      "properties": {
+        "image_name": "f6e68a97-da2e-45ab-a568-b541fc03dbe8_1744804344.jpg",
+        "predicted_class": "Oblique side road junction",
+        "class_index": 36,
+        "timestamp": "2025-04-16T11:52:32.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.531633,
+          17.982067
+        ]
+      },
+      "properties": {
+        "image_name": "b3acada3-952f-4142-823d-0fa8f0c980f6_1744804300.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 10,
+        "timestamp": "2025-04-16T11:51:52.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.531626,
+          17.982575999999995
+        ]
+      },
+      "properties": {
+        "image_name": "959c3bdd-345e-4440-84d2-2cd7f0b4c52f_1744804235.jpg",
+        "predicted_class": "Y-junction",
+        "class_index": 8,
+        "timestamp": "2025-04-16T11:50:42.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53210599999998,
+          17.98212100000002
+        ]
+      },
+      "properties": {
+        "image_name": "fe15ecc5-ecab-47f9-964e-a0abd98d3f83_1744804149.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 10,
+        "timestamp": "2025-04-16T11:49:18.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53211500000002,
+          17.982124999999996
+        ]
+      },
+      "properties": {
+        "image_name": "9181c98c-9a36-4373-9134-e6aa4d913652_1744804088.jpg",
+        "predicted_class": "No overtaking",
+        "class_index": 17,
+        "timestamp": "2025-04-16T11:48:31.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532078,
+          17.982860000000002
+        ]
+      },
+      "properties": {
+        "image_name": "2656a9ee-662b-45ac-a3fd-93e82f861a2a_1744803942.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-16T11:45:52.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.531984,
+          17.982742999999985
+        ]
+      },
+      "properties": {
+        "image_name": "5007d207-8fb3-491f-baff-81061afdc797_1744803883.jpg",
+        "predicted_class": "Cycle Parking",
+        "class_index": 24,
+        "timestamp": "2025-04-16T11:44:55.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.531953,
+          17.982885999999993
+        ]
+      },
+      "properties": {
+        "image_name": "e7444555-fad5-4c00-8c30-955cccc966c7_1744803849.jpg",
+        "predicted_class": "Horn prohibited",
+        "class_index": 20,
+        "timestamp": "2025-04-16T11:44:17.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53198,
+          17.982994000000005
+        ]
+      },
+      "properties": {
+        "image_name": "3511dc53-8c0a-4e36-afcb-fcb1c6647e8e_1744803803.jpg",
+        "predicted_class": "Scooter and Motorcycle Parking",
+        "class_index": 11,
+        "timestamp": "2025-04-16T11:43:30.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53202200000001,
+          17.983281000000005
+        ]
+      },
+      "properties": {
+        "image_name": "9dd51ef4-b53f-49df-9687-f806c534636a_1744803754.jpg",
+        "predicted_class": "Car Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-16T11:42:42.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532086,
+          17.983356999999998
+        ]
+      },
+      "properties": {
+        "image_name": "51605163-f82b-4881-b055-e4615ea8127e_1744803700.jpg",
+        "predicted_class": "Scooter and Motorcycle Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-16T11:41:49.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.532131,
+          17.984004
+        ]
+      },
+      "properties": {
+        "image_name": "4630fc1e-f550-4b2d-9293-ee0cb22268ef_1744792234.jpg",
+        "predicted_class": "Scooter and Motorcycle Parking",
+        "class_index": 20,
+        "timestamp": "2025-04-16T08:30:48.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.533412,
+          17.983891
+        ]
+      },
+      "properties": {
+        "image_name": "e0b49fef-0357-4031-ad34-32b065837d55_1744792107.jpg",
+        "predicted_class": "Pedestrian crossing",
+        "class_index": 8,
+        "timestamp": "2025-04-16T08:28:42.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53344,
+          17.983604999999997
+        ]
+      },
+      "properties": {
+        "image_name": "61fe0b9e-095b-4073-92aa-3bba3296014c_1744792031.jpg",
+        "predicted_class": "Speed limit 20",
+        "class_index": 20,
+        "timestamp": "2025-04-16T08:28:03.000Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.53342,
+          17.983379999999997
+        ]
+      },
+      "properties": {
+        "image_name": "dc124a4a-d3fb-4f13-90a0-6aa82be4c886_1744791948.jpg",
+        "predicted_class": "Cycle Parking",
+        "class_index": 31,
+        "timestamp": "2025-04-16T08:26:50.000Z"
+      }
+    }
+  ]
+}

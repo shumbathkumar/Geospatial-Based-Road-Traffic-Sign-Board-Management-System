@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Sign Map</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Controls Container -->
+<div id="controls-container">
+    <label for="signFilter"><strong>Filter by Sign:</strong></label><br>
+    <select id="signFilter" style="width: 180px; margin-bottom: 10px;">
+        <option value="all">All</option>
+    </select><br>
+    <label><strong>Filter by Date:</strong></label><br>
+<input type="date" id="fromDate">
+<input type="date" id="toDate">
+  <br><br>
+
+    <label for="basemapSelect"><strong>Select Basemap:</strong></label><br>
+    <select id="basemapSelect" style="width: 180px;">
+        <option value="osm">OpenStreetMap</option>
+        <option value="satellite">Satellite</option>
+        <option value="carto">Carto Dark</option>
+    </select>
+      <br><br>
+
+    <input type="checkbox" id="enableEditing"> Enable Editing
+    <button id="downloadGeoJSON">Download Updated GeoJSON</button>
+    <br><br>
+    <label for="imageToggle">Show:</label>
+    <select id="imageToggle">
+      <option value="real">Real Image</option>
+      <option value="icon">Icon</option>
+    </select>
+</div>
+
+<div id="map"></div>
+<div id="popup" class="popup" style="display:none;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
