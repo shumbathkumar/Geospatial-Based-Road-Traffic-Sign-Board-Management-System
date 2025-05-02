@@ -12,13 +12,13 @@ from datetime import datetime
 # Configurations
 PROJECT_SLUG = "traffic-signboard-database"
 API_TOKEN = ""  # Optional: put your token here if required
-OUTPUT_FOLDER = "OpenLayers/data/images"
-CROPPED_FOLDER = "OpenLayers/data/cropped_32x32"
+OUTPUT_FOLDER = "docs/data/images"
+CROPPED_FOLDER = "docs/data/cropped_32x32"
 ENTRIES_URL = f"https://five.epicollect.net/api/export/entries/{PROJECT_SLUG}?format=json"
 MEDIA_BASE_URL = "https://five.epicollect.net/api/media/"
 MODEL_PATH = 'model.h5'
 CLASS_MAPPING_CSV = 'traffic_sign.csv'
-GEOJSON_OUTPUT_PATH = "OpenLayers/data/predictions.geojson"
+GEOJSON_OUTPUT_PATH = "docs/data/predictions.geojson"
 
 # Create output folders if not exists
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
