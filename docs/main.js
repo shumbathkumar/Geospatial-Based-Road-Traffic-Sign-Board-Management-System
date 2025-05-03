@@ -135,9 +135,7 @@ map.on('click', function (event) {
         const imageToggleValue = document.getElementById("imageToggle").value;
         const imagePath = imageToggleValue === "real"
             ? `data/images/${imageName}`
-            : imageToggleValue === "icon"
-            ? `data/icons/${currentClass}.png`
-            : `data/cropped_32x32/${imageName}`;
+            : `data/icons/${currentClass}.png`;
 
         popup.innerHTML = `
             <strong>Sign:</strong><br>
