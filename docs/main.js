@@ -183,4 +183,16 @@ map.on('click', function (event) {
 })
 .catch(error => console.error("❌ Error loading GeoJSON:", error));
 
+
+    const toggleControlsBtn = document.getElementById("toggleControls");
+    toggleControlsBtn.addEventListener("click", () => {
+        document.body.classList.toggle("hide-controls");
+
+        toggleControlsBtn.textContent = document.body.classList.contains("hide-controls")
+            ? "Show Controls"
+            : "Hide Controls";
+
+        map.updateSize();
+    });
+
 };
