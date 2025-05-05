@@ -1,4 +1,22 @@
 window.onload = function () {
+
+    // Add this utility to support circular polygon creation
+if (!ol.geom.Polygon.circular) {
+    ol.geom.Polygon.circular = function (projection, center, radius, points) {
+        const coords = [];
+        for (let i = 0; i < points; i++) {
+            const angle = 2 * Math.PI * i / points;
+            const dx = radius * Math.cos(angle);
+            const dy = radius * Math.sin(angle);
+            const offset = ol.proj.toLonLat([center[0] + dx, center[1] + dy], projection);
+            coords.push(ol.proj.fromLonLat(offset, projection));
+        }
+        coords.push(coords[0]);
+        return new ol.geom.Polygon([coords]);
+    };
+}
+
+
     const osmLayer = new ol.layer.Tile({
         source: new ol.source.OSM(),
         visible: true
@@ -194,5 +212,94 @@ map.on('click', function (event) {
 
         map.updateSize();
     });
+
+
+        // === Live Location Tracking ===
+    const positionFeature = new ol.Feature();
+    positionFeature.setStyle(new ol.style.Style({
+        image: new ol.style.Circle({
+            radius: 6,
+            fill: new ol.style.Fill({ color: '#3399CC' }),
+            stroke: new ol.style.Stroke({ color: '#fff', width: 2 })
+        })
+    }));
+
+    const positionSource = new ol.source.Vector({
+        features: [positionFeature]
+    });
+
+    const positionLayer = new ol.layer.Vector({
+        source: positionSource
+    });
+
+    map.addLayer(positionLayer);
+
+    // Use Geolocation API
+    if ("geolocation" in navigator) {
+        navigator.geolocation.watchPosition(function (pos) {
+            const coords = [pos.coords.longitude, pos.coords.latitude];
+            const accuracy = pos.coords.accuracy;
+
+            const projectedCoords = ol.proj.fromLonLat(coords);
+            positionFeature.setGeometry(new ol.geom.Point(projectedCoords));
+
+            // Optionally center the map on user location
+            map.getView().setCenter(projectedCoords);
+
+            console.log("📍 Live Location Updated:", coords, "Accuracy:", accuracy + "m");
+        }, function (err) {
+            console.warn("❌ Geolocation error:", err.message);
+        }, {
+            enableHighAccuracy: true,
+            maximumAge: 10000,
+            timeout: 10000
+        });
+    } else {
+        console.warn("⚠️ Geolocation not supported in this browser.");
+    }
+
+
+        // === Accuracy Circle Feature ===
+    const accuracyFeature = new ol.Feature({
+        geometry: null
+    });
+    accuracyFeature.setStyle(new ol.style.Style({
+        fill: new ol.style.Fill({
+            color: 'rgba(51, 153, 204, 0.2)'  // Light blue translucent
+        }),
+        stroke: new ol.style.Stroke({
+            color: '#3399CC',
+            width: 1
+        })
+    }));
+
+    positionSource.addFeature(accuracyFeature);  // Add to same source as position
+
+    // Modify geolocation watcher to update accuracy circle too
+    navigator.geolocation.watchPosition(function (pos) {
+        const coords = [pos.coords.longitude, pos.coords.latitude];
+        const projectedCoords = ol.proj.fromLonLat(coords);
+
+        positionFeature.setGeometry(new ol.geom.Point(projectedCoords));
+
+        const radiusInMeters = pos.coords.accuracy;
+        const accuracyCircle = ol.geom.Polygon.circular(
+            ol.proj.get('EPSG:3857'), projectedCoords, radiusInMeters, 64
+        );
+
+        accuracyFeature.setGeometry(accuracyCircle);
+
+        // Optionally recenter map only on first update or with toggle
+        map.getView().setCenter(projectedCoords);
+    }, function (err) {
+        console.warn("❌ Geolocation error:", err.message);
+    }, {
+        enableHighAccuracy: true,
+        maximumAge: 10000,
+        timeout: 10000
+    });
+
+
+
 
 };

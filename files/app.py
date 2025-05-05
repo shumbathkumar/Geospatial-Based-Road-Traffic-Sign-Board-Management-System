@@ -148,7 +148,7 @@ def model_predict(img_path, model):
 if __name__ == '__main__':
     load_class_mapping('../traffic_sign.csv')
 
-    file_path = 'img2.jpg'
+    file_path = 'img.png'
 
     if not os.path.exists(file_path):
         print(f"Error: Image file '{file_path}' not found.")
