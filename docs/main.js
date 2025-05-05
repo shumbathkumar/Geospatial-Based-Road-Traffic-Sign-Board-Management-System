@@ -1,19 +1,3 @@
-// Utility to support circular polygon creation for accuracy circle
-if (!ol.geom.Polygon.circular) {
-    ol.geom.Polygon.circular = function (projection, center, radius, points) {
-        const coords = [];
-        for (let i = 0; i < points; i++) {
-            const angle = 2 * Math.PI * i / points;
-            const dx = radius * Math.cos(angle);
-            const dy = radius * Math.sin(angle);
-            const offset = ol.proj.toLonLat([center[0] + dx, center[1] + dy], projection);
-            coords.push(ol.proj.fromLonLat(offset, projection));
-        }
-        coords.push(coords[0]);
-        return new ol.geom.Polygon([coords]);
-    };
-}
-
 window.onload = function () {
     const osmLayer = new ol.layer.Tile({ source: new ol.source.OSM(), visible: true });
     const satelliteLayer = new ol.layer.Tile({
@@ -45,7 +29,12 @@ window.onload = function () {
     const signFilter = document.getElementById("signFilter");
     const enableEditingCheckbox = document.getElementById("enableEditing");
     const popup = document.getElementById("popup");
-    const overlay = new ol.Overlay({ element: popup, positioning: 'bottom-center', stopEvent: true });
+
+    const overlay = new ol.Overlay({
+        element: popup,
+        positioning: 'bottom-center',
+        stopEvent: true
+    });
     map.addOverlay(overlay);
 
     const liveLocationSource = new ol.source.Vector();
@@ -83,6 +72,29 @@ window.onload = function () {
         }
     });
 
+map.on('click', function (event) {
+    map.forEachFeatureAtPixel(event.pixel, function (feature) {
+        if (feature.get('isLiveLocation')) {
+            // Get the coordinates of the live location point
+            const coords = ol.proj.toLonLat(positionFeature.getGeometry().getCoordinates());
+
+            // Format the coordinates to 2 decimal places
+            const formattedLatitude = coords[1].toFixed(2);
+            const formattedLongitude = coords[0].toFixed(2);
+
+            // Show the coordinates in the popup
+            popup.innerHTML = `
+                <strong>Live Location:</strong><br>
+                Latitude: ${formattedLatitude}<br>
+                Longitude: ${formattedLongitude}<br>
+            `;
+            overlay.setPosition(event.coordinate);
+            popup.style.display = 'block';
+        }
+    });
+});
+
+
     let allFeatures = [];
     fetch('data/predictions.geojson')
         .then(response => response.json())
@@ -114,10 +126,6 @@ window.onload = function () {
             const vectorLayer = new ol.layer.Vector({ source: vectorSource, style: styleFunction });
             map.addLayer(vectorLayer);
 
-            const signFilter = document.getElementById("signFilter");
-            const fromDate = document.getElementById("fromDate");
-            const toDate = document.getElementById("toDate");
-
             const classes = [...new Set(allFeatures.map(f => f.get('predicted_class')))].sort();
             classes.forEach(cls => {
                 const option = document.createElement("option");
@@ -145,42 +153,6 @@ window.onload = function () {
             signFilter.addEventListener("change", applyFilters);
             fromDate.addEventListener("change", applyFilters);
             toDate.addEventListener("change", applyFilters);
-
-            map.on('click', function (event) {
-                overlay.setPosition(undefined);
-                popup.style.display = 'none';
-
-                map.forEachFeatureAtPixel(event.pixel, function (feature) {
-                    if (!feature || feature.get('isLiveLocation')) return;
-
-                    const properties = feature.getProperties();
-                    const currentClass = properties.predicted_class;
-                    const imageName = properties.image_name;
-                    const isEditable = document.getElementById("enableEditing").checked;
-
-                    const imageToggleValue = document.getElementById("imageToggle").value;
-                    const imagePath = imageToggleValue === "real" ? `data/images/${imageName}` : `data/icons/${currentClass}.png`;
-
-                    popup.innerHTML = `
-                        <strong>Sign:</strong><br>
-                        ${isEditable ? `<input type="text" id="editClass" value="${currentClass}" style="width: 120px;"><br>` : `<span>${currentClass}</span><br>`}
-                        <img src="${imagePath}" alt="${currentClass}" width="100"><br>
-                        ${isEditable ? `<button id="updateClassBtn">Update</button>` : ``}
-                    `;
-
-                    overlay.setPosition(event.coordinate);
-                    popup.style.display = 'block';
-
-                    if (isEditable) {
-                        document.getElementById("updateClassBtn").onclick = () => {
-                            const newClass = document.getElementById("editClass").value;
-                            feature.set('predicted_class', newClass);
-                            vectorSource.changed();
-                            popup.style.display = 'none';
-                        };
-                    }
-                });
-            });
 
             document.getElementById('downloadGeoJSON').addEventListener('click', () => {
                 const geojsonFormat = new ol.format.GeoJSON();
