@@ -160,46 +160,74 @@ map.on('click', function (event) {
             toDate.addEventListener("change", applyFilters);
 
 map.on('click', function (event) {
-    overlay.setPosition(undefined);
-    popup.style.display = 'none';
+    let clickedFeature = null;
 
+    // Check if a feature was clicked
     map.forEachFeatureAtPixel(event.pixel, function (feature) {
-        const properties = feature.getProperties();
-        const currentClass = properties.predicted_class;
-        const imageName = properties.image_name;
-        const isEditable = enableEditingCheckbox.checked;
-
-        const imageToggleValue = document.getElementById("imageToggle").value;
-        const imagePath = imageToggleValue === "real"
-            ? `data/images/${imageName}`
-            : `data/icons/${currentClass}.png`;
-
-        popup.innerHTML = `
-            <strong>Sign:</strong><br>
-            ${isEditable
-                ? `<input type="text" id="editClass" value="${currentClass}" style="width: 120px;"><br>`
-                : `<span>${currentClass}</span><br>`
-            }
-            <img src="${imagePath}" alt="${currentClass}" width="100"><br>
-            ${isEditable
-                ? `<button id="updateClassBtn">Update</button>`
-                : ``
-            }
-        `;
-
-        overlay.setPosition(event.coordinate);
-        popup.style.display = 'block';
-
-        if (isEditable) {
-            document.getElementById("updateClassBtn").onclick = () => {
-                const newClass = document.getElementById("editClass").value;
-                feature.set('predicted_class', newClass);
-                vectorSource.changed();
-                popup.style.display = 'none';
-            };
+        // If the feature is the live location, store it
+        if (feature.get('isLiveLocation')) {
+            clickedFeature = feature;
+        } else {
+            // If it's another feature, store that too
+            clickedFeature = feature;
         }
     });
+
+    // If a feature is clicked, handle the popup display
+    if (clickedFeature) {
+        if (clickedFeature.get('isLiveLocation')) {
+            // Handle live location feature click
+            const coords = ol.proj.toLonLat(positionFeature.getGeometry().getCoordinates());
+            const formattedLatitude = coords[1].toFixed(2);
+            const formattedLongitude = coords[0].toFixed(2);
+
+            // Show the live location in the popup
+            popup.innerHTML = `
+                <strong>Live Location:</strong><br>
+                Latitude: ${formattedLatitude}<br>
+                Longitude: ${formattedLongitude}<br>
+            `;
+        } else {
+            // Handle other features (traffic signs, etc.)
+            const properties = clickedFeature.getProperties();
+            const currentClass = properties.predicted_class;
+            const imageName = properties.image_name;
+            const isEditable = enableEditingCheckbox.checked;
+            const imageToggleValue = document.getElementById("imageToggle").value;
+            const imagePath = imageToggleValue === "real"
+                ? `data/images/${imageName}`
+                : `data/icons/${currentClass}.png`;
+
+            popup.innerHTML = `
+                <strong>Sign:</strong><br>
+                ${isEditable
+                    ? `<input type="text" id="editClass" value="${currentClass}" style="width: 120px;"><br>`
+                    : `<span>${currentClass}</span><br>`
+                }
+                <img src="${imagePath}" alt="${currentClass}" width="100"><br>
+                ${isEditable ? `<button id="updateClassBtn">Update</button>` : ``}
+            `;
+
+            if (isEditable) {
+                document.getElementById("updateClassBtn").onclick = () => {
+                    const newClass = document.getElementById("editClass").value;
+                    clickedFeature.set('predicted_class', newClass);
+                    vectorSource.changed();
+                    popup.style.display = 'none';
+                };
+            }
+        }
+
+        // Display the popup
+        overlay.setPosition(event.coordinate);
+        popup.style.display = 'block';
+    } else {
+        // If no feature is clicked, hide the popup
+        overlay.setPosition(undefined);
+        popup.style.display = 'none';
+    }
 });
+
 
 
     document.getElementById('downloadGeoJSON').addEventListener('click', () => {
