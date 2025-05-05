@@ -126,13 +126,18 @@ map.on('click', function (event) {
             const vectorLayer = new ol.layer.Vector({ source: vectorSource, style: styleFunction });
             map.addLayer(vectorLayer);
 
-            const classes = [...new Set(allFeatures.map(f => f.get('predicted_class')))].sort();
-            classes.forEach(cls => {
-                const option = document.createElement("option");
-                option.value = cls;
-                option.textContent = cls;
-                signFilter.appendChild(option);
-            });
+    // Populate sign filter
+    const signFilter = document.getElementById("signFilter");
+    const fromDate = document.getElementById("fromDate");
+    const toDate = document.getElementById("toDate");
+
+    const classes = [...new Set(allFeatures.map(f => f.get('predicted_class')))].sort();
+    classes.forEach(cls => {
+        const option = document.createElement("option");
+        option.value = cls;
+        option.textContent = cls;
+        signFilter.appendChild(option);
+    });
 
             function applyFilters() {
                 const selectedClass = signFilter.value;
@@ -154,12 +159,55 @@ map.on('click', function (event) {
             fromDate.addEventListener("change", applyFilters);
             toDate.addEventListener("change", applyFilters);
 
-            document.getElementById('downloadGeoJSON').addEventListener('click', () => {
-                const geojsonFormat = new ol.format.GeoJSON();
-                const updatedGeoJSON = geojsonFormat.writeFeaturesObject(allFeatures, {
-                    dataProjection: 'EPSG:4326',
-                    featureProjection: 'EPSG:3857'
-                });
+map.on('click', function (event) {
+    overlay.setPosition(undefined);
+    popup.style.display = 'none';
+
+    map.forEachFeatureAtPixel(event.pixel, function (feature) {
+        const properties = feature.getProperties();
+        const currentClass = properties.predicted_class;
+        const imageName = properties.image_name;
+        const isEditable = enableEditingCheckbox.checked;
+
+        const imageToggleValue = document.getElementById("imageToggle").value;
+        const imagePath = imageToggleValue === "real"
+            ? `data/images/${imageName}`
+            : `data/icons/${currentClass}.png`;
+
+        popup.innerHTML = `
+            <strong>Sign:</strong><br>
+            ${isEditable
+                ? `<input type="text" id="editClass" value="${currentClass}" style="width: 120px;"><br>`
+                : `<span>${currentClass}</span><br>`
+            }
+            <img src="${imagePath}" alt="${currentClass}" width="100"><br>
+            ${isEditable
+                ? `<button id="updateClassBtn">Update</button>`
+                : ``
+            }
+        `;
+
+        overlay.setPosition(event.coordinate);
+        popup.style.display = 'block';
+
+        if (isEditable) {
+            document.getElementById("updateClassBtn").onclick = () => {
+                const newClass = document.getElementById("editClass").value;
+                feature.set('predicted_class', newClass);
+                vectorSource.changed();
+                popup.style.display = 'none';
+            };
+        }
+    });
+});
+
+
+    document.getElementById('downloadGeoJSON').addEventListener('click', () => {
+        const geojsonFormat = new ol.format.GeoJSON();
+        const updatedGeoJSON = geojsonFormat.writeFeaturesObject(allFeatures, {
+            dataProjection: 'EPSG:4326',
+            featureProjection: 'EPSG:3857'
+        });
 
                 const blob = new Blob([JSON.stringify(updatedGeoJSON, null, 2)], { type: 'application/json' });
                 const url = URL.createObjectURL(blob);
