@@ -45,18 +45,20 @@ window.onload = function () {
     positionFeature.set('isLiveLocation', true);
     positionFeature.setStyle(new ol.style.Style({
         image: new ol.style.Circle({
-            radius: 10,
-            fill: new ol.style.Fill({ color: '#007BFF' }),
-            stroke: new ol.style.Stroke({ color: '#ffffff', width: 3 })
+            radius: 6,
+            fill: new ol.style.Fill({ color: '#4285F4' }), // Google Maps blue
+            stroke: new ol.style.Stroke({ color: 'white', width: 2 })
         })
     }));
+
 
     const accuracyFeature = new ol.Feature({ geometry: null });
     accuracyFeature.set('isLiveLocation', true);
     accuracyFeature.setStyle(new ol.style.Style({
-        fill: new ol.style.Fill({ color: 'rgba(51, 153, 204, 0.2)' }),
-        stroke: new ol.style.Stroke({ color: '#3399CC', width: 1 })
+        fill: new ol.style.Fill({ color: 'rgba(66, 133, 244, 0.15)' }),
+        stroke: new ol.style.Stroke({ color: 'rgba(66, 133, 244, 0.5)', width: 1 })
     }));
+
 
     liveLocationSource.addFeatures([accuracyFeature, positionFeature]);
 
@@ -71,6 +73,17 @@ window.onload = function () {
             hasCentered = true;
         }
     });
+
+    document.getElementById("centerOnLocationBtn").addEventListener("click", () => {
+    const geometry = positionFeature.getGeometry();
+    if (geometry) {
+        const coords = geometry.getCoordinates();
+        map.getView().animate({ center: coords, zoom: 18, duration: 500 });
+    } else {
+        alert("Live location not available yet.");
+    }
+    });
+
 
 map.on('click', function (event) {
     map.forEachFeatureAtPixel(event.pixel, function (feature) {
