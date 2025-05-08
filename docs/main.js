@@ -78,10 +78,6 @@ navigator.geolocation.watchPosition(function (pos) {
     const accuracyCircle = new ol.geom.Circle(coords, pos.coords.accuracy);
     accuracyFeature.setGeometry(ol.geom.Polygon.fromCircle(accuracyCircle, 64));
 
-    // 20m alert circle (new part)
-    const alertCircle = new ol.geom.Circle(coords, 20); // 20 meters radius
-    const alertRadiusCircle = ol.geom.Polygon.fromCircle(alertCircle, 64); // Convert to polygon
-    alertRadiusFeature.setGeometry(alertRadiusCircle);
 
     if (!hasCentered) {
         map.getView().setCenter(coords);
@@ -341,7 +337,7 @@ navigator.geolocation.watchPosition(
             const id = feature.getId() || `${featureCoord[0]}_${featureCoord[1]}`;
 
             const alertsEnabled = document.getElementById("enableAlerts").checked;
-            if (alertsEnabled && distance <= 20 && !alertShownFeatures.has(id)) {
+            if (alertsEnabled && distance <= 2000 && !alertShownFeatures.has(id)) {
                 alertShownFeatures.add(id);
                 showToast(`🚨 Nearby sign: ${feature.get('predicted_class')} (${Math.round(distance)}m away)`);
             }
