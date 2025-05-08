@@ -26,6 +26,7 @@ window.onload = function () {
         cartoDarkLayer.setVisible(selected === 'carto');
     });
 
+    const enableAlertsCheckbox = document.getElementById("enableAlerts");
     const signFilter = document.getElementById("signFilter");
     const enableEditingCheckbox = document.getElementById("enableEditing");
     const popup = document.getElementById("popup");
@@ -51,14 +52,12 @@ window.onload = function () {
         })
     }));
 
-
     const accuracyFeature = new ol.Feature({ geometry: null });
     accuracyFeature.set('isLiveLocation', true);
     accuracyFeature.setStyle(new ol.style.Style({
         fill: new ol.style.Fill({ color: 'rgba(66, 133, 244, 0.15)' }),
         stroke: new ol.style.Stroke({ color: 'rgba(66, 133, 244, 0.5)', width: 1 })
     }));
-
 
     liveLocationSource.addFeatures([accuracyFeature, positionFeature]);
 
@@ -72,41 +71,48 @@ window.onload = function () {
             map.getView().setCenter(coords);
             hasCentered = true;
         }
-    });
 
-    document.getElementById("centerOnLocationBtn").addEventListener("click", () => {
-    const geometry = positionFeature.getGeometry();
-    if (geometry) {
-        const coords = geometry.getCoordinates();
-        map.getView().animate({ center: coords, zoom: 18, duration: 500 });
-    } else {
-        alert("Live location not available yet.");
-    }
-    });
-
-
-map.on('click', function (event) {
-    map.forEachFeatureAtPixel(event.pixel, function (feature) {
-        if (feature.get('isLiveLocation')) {
-            // Get the coordinates of the live location point
-            const coords = ol.proj.toLonLat(positionFeature.getGeometry().getCoordinates());
-
-            // Format the coordinates to 2 decimal places
-            const formattedLatitude = coords[1].toFixed(2);
-            const formattedLongitude = coords[0].toFixed(2);
-
-            // Show the coordinates in the popup
-            popup.innerHTML = `
-                <strong>Live Location:</strong><br>
-                Latitude: ${formattedLatitude}<br>
-                Longitude: ${formattedLongitude}<br>
-            `;
-            overlay.setPosition(event.coordinate);
-            popup.style.display = 'block';
+        // Trigger alert if enabled and a nearby signboard is detected
+        if (enableAlertsCheckbox.checked) {
+            checkNearbySignboards(coords);
         }
     });
-});
 
+    function checkNearbySignboards(userCoords) {
+        const nearbySigns = allFeatures.filter(feature => {
+            const featureCoords = feature.getGeometry().getCoordinates();
+            const distance = ol.sphere.getDistance(userCoords, featureCoords);
+            return distance <= 20; // 20 meters range
+        });
+
+        if (nearbySigns.length > 0) {
+            alert('There are nearby signboards within 20 meters!');
+            // Optionally, show details in popup
+            const nearbySign = nearbySigns[0];
+            const properties = nearbySign.getProperties();
+            const imageName = properties.image_name;
+            const currentClass = properties.predicted_class;
+            const imagePath = `data/icons/${currentClass}.png`;
+
+            popup.innerHTML = `
+                <strong>Nearby Sign:</strong><br>
+                ${currentClass}<br>
+                <img src="${imagePath}" alt="${currentClass}" width="100"><br>
+            `;
+            overlay.setPosition(userCoords); // Show popup at user location or signboard location
+            popup.style.display = 'block';
+        }
+    }
+
+    document.getElementById("centerOnLocationBtn").addEventListener("click", () => {
+        const geometry = positionFeature.getGeometry();
+        if (geometry) {
+            const coords = geometry.getCoordinates();
+            map.getView().animate({ center: coords, zoom: 18, duration: 500 });
+        } else {
+            alert("Live location not available yet.");
+        }
+    });
 
     let allFeatures = [];
     fetch('data/predictions.geojson')
@@ -139,130 +145,15 @@ map.on('click', function (event) {
             const vectorLayer = new ol.layer.Vector({ source: vectorSource, style: styleFunction });
             map.addLayer(vectorLayer);
 
-    // Populate sign filter
-    const signFilter = document.getElementById("signFilter");
-    const fromDate = document.getElementById("fromDate");
-    const toDate = document.getElementById("toDate");
-
-    const classes = [...new Set(allFeatures.map(f => f.get('predicted_class')))].sort();
-    classes.forEach(cls => {
-        const option = document.createElement("option");
-        option.value = cls;
-        option.textContent = cls;
-        signFilter.appendChild(option);
-    });
-
-            function applyFilters() {
-                const selectedClass = signFilter.value;
-                const from = new Date(fromDate.value);
-                const to = new Date(toDate.value);
-
-                const filtered = allFeatures.filter(f => {
-                    const matchClass = selectedClass === "all" || f.get('predicted_class') === selectedClass;
-                    const featureTime = new Date(f.get('timestamp'));
-                    const matchDate = (!fromDate.value || featureTime >= from) && (!toDate.value || featureTime <= to);
-                    return matchClass && matchDate;
-                });
-
-                vectorSource.clear();
-                vectorSource.addFeatures(filtered);
-            }
-
-            signFilter.addEventListener("change", applyFilters);
-            fromDate.addEventListener("change", applyFilters);
-            toDate.addEventListener("change", applyFilters);
-
-map.on('click', function (event) {
-    let clickedFeature = null;
-
-    // Check if a feature was clicked
-    map.forEachFeatureAtPixel(event.pixel, function (feature) {
-        // If the feature is the live location, store it
-        if (feature.get('isLiveLocation')) {
-            clickedFeature = feature;
-        } else {
-            // If it's another feature, store that too
-            clickedFeature = feature;
-        }
-    });
-
-    // If a feature is clicked, handle the popup display
-    if (clickedFeature) {
-        if (clickedFeature.get('isLiveLocation')) {
-            // Handle live location feature click
-            const coords = ol.proj.toLonLat(positionFeature.getGeometry().getCoordinates());
-            const formattedLatitude = coords[1].toFixed(2);
-            const formattedLongitude = coords[0].toFixed(2);
-
-            // Show the live location in the popup
-            popup.innerHTML = `
-                <strong>Live Location:</strong><br>
-                Latitude: ${formattedLatitude}<br>
-                Longitude: ${formattedLongitude}<br>
-            `;
-        } else {
-            // Handle other features (traffic signs, etc.)
-            const properties = clickedFeature.getProperties();
-            const currentClass = properties.predicted_class;
-            const imageName = properties.image_name;
-            const isEditable = enableEditingCheckbox.checked;
-            const imageToggleValue = document.getElementById("imageToggle").value;
-            const imagePath = imageToggleValue === "real"
-                ? `data/images/${imageName}`
-                : `data/icons/${currentClass}.png`;
-
-            popup.innerHTML = `
-                <strong>Sign:</strong><br>
-                ${isEditable
-                    ? `<input type="text" id="editClass" value="${currentClass}" style="width: 120px;"><br>`
-                    : `<span>${currentClass}</span><br>`
-                }
-                <img src="${imagePath}" alt="${currentClass}" width="100"><br>
-                ${isEditable ? `<button id="updateClassBtn">Update</button>` : ``}
-            `;
-
-            if (isEditable) {
-                document.getElementById("updateClassBtn").onclick = () => {
-                    const newClass = document.getElementById("editClass").value;
-                    clickedFeature.set('predicted_class', newClass);
-                    vectorSource.changed();
-                    popup.style.display = 'none';
-                };
-            }
-        }
-
-        // Display the popup
-        overlay.setPosition(event.coordinate);
-        popup.style.display = 'block';
-    } else {
-        // If no feature is clicked, hide the popup
-        overlay.setPosition(undefined);
-        popup.style.display = 'none';
-    }
-});
-
-
-
-    document.getElementById('downloadGeoJSON').addEventListener('click', () => {
-        const geojsonFormat = new ol.format.GeoJSON();
-        const updatedGeoJSON = geojsonFormat.writeFeaturesObject(allFeatures, {
-            dataProjection: 'EPSG:4326',
-            featureProjection: 'EPSG:3857'
-        });
-
-                const blob = new Blob([JSON.stringify(updatedGeoJSON, null, 2)], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = 'updated_predictions.geojson';
-                link.click();
+            // Populate sign filter
+            const signFilter = document.getElementById("signFilter");
+            const classes = [...new Set(allFeatures.map(f => f.get('predicted_class')))].sort();
+            classes.forEach(cls => {
+                const option = document.createElement("option");
+                option.value = cls;
+                option.textContent = cls;
+                signFilter.appendChild(option);
             });
         })
         .catch(error => console.error("❌ Error loading GeoJSON:", error));
-
-    document.getElementById('toggleControls').addEventListener("click", () => {
-        document.body.classList.toggle("hide-controls");
-        document.getElementById('toggleControls').textContent = document.body.classList.contains("hide-controls") ? "Show Controls" : "Hide Controls";
-        map.updateSize();
-    });
 };
