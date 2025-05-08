@@ -1,3 +1,5 @@
+/// <reference path="ol.js" />
+
 window.onload = function () {
     const osmLayer = new ol.layer.Tile({ source: new ol.source.OSM(), visible: true });
     const satelliteLayer = new ol.layer.Tile({
@@ -114,6 +116,30 @@ window.onload = function () {
         }
     });
 
+
+map.on('click', function (event) {
+    map.forEachFeatureAtPixel(event.pixel, function (feature) {
+        if (feature.get('isLiveLocation')) {
+            // Get the coordinates of the live location point
+            const coords = ol.proj.toLonLat(positionFeature.getGeometry().getCoordinates());
+
+            // Format the coordinates to 2 decimal places
+            const formattedLatitude = coords[1].toFixed(2);
+            const formattedLongitude = coords[0].toFixed(2);
+
+            // Show the coordinates in the popup
+            popup.innerHTML = `
+                <strong>Live Location:</strong><br>
+                Latitude: ${formattedLatitude}<br>
+                Longitude: ${formattedLongitude}<br>
+            `;
+            overlay.setPosition(event.coordinate);
+            popup.style.display = 'block';
+        }
+    });
+});
+
+
     let allFeatures = [];
     fetch('data/predictions.geojson')
         .then(response => response.json())
@@ -145,15 +171,130 @@ window.onload = function () {
             const vectorLayer = new ol.layer.Vector({ source: vectorSource, style: styleFunction });
             map.addLayer(vectorLayer);
 
-            // Populate sign filter
-            const signFilter = document.getElementById("signFilter");
-            const classes = [...new Set(allFeatures.map(f => f.get('predicted_class')))].sort();
-            classes.forEach(cls => {
-                const option = document.createElement("option");
-                option.value = cls;
-                option.textContent = cls;
-                signFilter.appendChild(option);
+    // Populate sign filter
+    const signFilter = document.getElementById("signFilter");
+    const fromDate = document.getElementById("fromDate");
+    const toDate = document.getElementById("toDate");
+
+    const classes = [...new Set(allFeatures.map(f => f.get('predicted_class')))].sort();
+    classes.forEach(cls => {
+        const option = document.createElement("option");
+        option.value = cls;
+        option.textContent = cls;
+        signFilter.appendChild(option);
+    });
+
+            function applyFilters() {
+                const selectedClass = signFilter.value;
+                const from = new Date(fromDate.value);
+                const to = new Date(toDate.value);
+
+                const filtered = allFeatures.filter(f => {
+                    const matchClass = selectedClass === "all" || f.get('predicted_class') === selectedClass;
+                    const featureTime = new Date(f.get('timestamp'));
+                    const matchDate = (!fromDate.value || featureTime >= from) && (!toDate.value || featureTime <= to);
+                    return matchClass && matchDate;
+                });
+
+                vectorSource.clear();
+                vectorSource.addFeatures(filtered);
+            }
+
+            signFilter.addEventListener("change", applyFilters);
+            fromDate.addEventListener("change", applyFilters);
+            toDate.addEventListener("change", applyFilters);
+
+map.on('click', function (event) {
+    let clickedFeature = null;
+
+    // Check if a feature was clicked
+    map.forEachFeatureAtPixel(event.pixel, function (feature) {
+        // If the feature is the live location, store it
+        if (feature.get('isLiveLocation')) {
+            clickedFeature = feature;
+        } else {
+            // If it's another feature, store that too
+            clickedFeature = feature;
+        }
+    });
+
+    // If a feature is clicked, handle the popup display
+    if (clickedFeature) {
+        if (clickedFeature.get('isLiveLocation')) {
+            // Handle live location feature click
+            const coords = ol.proj.toLonLat(positionFeature.getGeometry().getCoordinates());
+            const formattedLatitude = coords[1].toFixed(2);
+            const formattedLongitude = coords[0].toFixed(2);
+
+            // Show the live location in the popup
+            popup.innerHTML = `
+                <strong>Live Location:</strong><br>
+                Latitude: ${formattedLatitude}<br>
+                Longitude: ${formattedLongitude}<br>
+            `;
+        } else {
+            // Handle other features (traffic signs, etc.)
+            const properties = clickedFeature.getProperties();
+            const currentClass = properties.predicted_class;
+            const imageName = properties.image_name;
+            const isEditable = enableEditingCheckbox.checked;
+            const imageToggleValue = document.getElementById("imageToggle").value;
+            const imagePath = imageToggleValue === "real"
+                ? `data/images/${imageName}`
+                : `data/icons/${currentClass}.png`;
+
+            popup.innerHTML = `
+                <strong>Sign:</strong><br>
+                ${isEditable
+                    ? `<input type="text" id="editClass" value="${currentClass}" style="width: 120px;"><br>`
+                    : `<span>${currentClass}</span><br>`
+                }
+                <img src="${imagePath}" alt="${currentClass}" width="100"><br>
+                ${isEditable ? `<button id="updateClassBtn">Update</button>` : ``}
+            `;
+
+            if (isEditable) {
+                document.getElementById("updateClassBtn").onclick = () => {
+                    const newClass = document.getElementById("editClass").value;
+                    clickedFeature.set('predicted_class', newClass);
+                    vectorSource.changed();
+                    popup.style.display = 'none';
+                };
+            }
+        }
+
+        // Display the popup
+        overlay.setPosition(event.coordinate);
+        popup.style.display = 'block';
+    } else {
+        // If no feature is clicked, hide the popup
+        overlay.setPosition(undefined);
+        popup.style.display = 'none';
+    }
+});
+
+
+
+    document.getElementById('downloadGeoJSON').addEventListener('click', () => {
+        const geojsonFormat = new ol.format.GeoJSON();
+        const updatedGeoJSON = geojsonFormat.writeFeaturesObject(allFeatures, {
+            dataProjection: 'EPSG:4326',
+            featureProjection: 'EPSG:3857'
+        });
+
+                const blob = new Blob([JSON.stringify(updatedGeoJSON, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'updated_predictions.geojson';
+                link.click();
             });
         })
         .catch(error => console.error("❌ Error loading GeoJSON:", error));
+
+    document.getElementById('toggleControls').addEventListener("click", () => {
+        document.body.classList.toggle("hide-controls");
+        document.getElementById('toggleControls').textContent = document.body.classList.contains("hide-controls") ? "Show Controls" : "Hide Controls";
+        map.updateSize();
+    });
 };
