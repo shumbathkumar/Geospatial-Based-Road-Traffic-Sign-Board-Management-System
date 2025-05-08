@@ -1,5 +1,3 @@
-/// <reference path="ol.js" />
-
 window.onload = function () {
     const osmLayer = new ol.layer.Tile({ source: new ol.source.OSM(), visible: true });
     const satelliteLayer = new ol.layer.Tile({
@@ -28,7 +26,6 @@ window.onload = function () {
         cartoDarkLayer.setVisible(selected === 'carto');
     });
 
-    const enableAlertsCheckbox = document.getElementById("enableAlerts");
     const signFilter = document.getElementById("signFilter");
     const enableEditingCheckbox = document.getElementById("enableEditing");
     const popup = document.getElementById("popup");
@@ -54,6 +51,7 @@ window.onload = function () {
         })
     }));
 
+
     const accuracyFeature = new ol.Feature({ geometry: null });
     accuracyFeature.set('isLiveLocation', true);
     accuracyFeature.setStyle(new ol.style.Style({
@@ -61,59 +59,67 @@ window.onload = function () {
         stroke: new ol.style.Stroke({ color: 'rgba(66, 133, 244, 0.5)', width: 1 })
     }));
 
+    const alertRadiusFeature = new ol.Feature({ geometry: null });
+    alertRadiusFeature.setStyle(new ol.style.Style({
+        fill: new ol.style.Fill({ color: 'rgba(255, 0, 0, 0.1)' }), // light red fill
+        stroke: new ol.style.Stroke({ color: 'rgba(255, 0, 0, 0.5)', width: 2 })
+    }));
+    liveLocationSource.addFeature(alertRadiusFeature);
+
+
     liveLocationSource.addFeatures([accuracyFeature, positionFeature]);
 
     let hasCentered = false;
-    navigator.geolocation.watchPosition(function (pos) {
-        const coords = ol.proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
-        positionFeature.setGeometry(new ol.geom.Point(coords));
-        const accuracyCircle = ol.geom.Polygon.circular(ol.proj.get('EPSG:3857'), coords, pos.coords.accuracy, 64);
-        accuracyFeature.setGeometry(accuracyCircle);
-        if (!hasCentered) {
-            map.getView().setCenter(coords);
-            hasCentered = true;
-        }
+navigator.geolocation.watchPosition(function (pos) {
+    const coords = ol.proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
+    positionFeature.setGeometry(new ol.geom.Point(coords));
 
-        // Trigger alert if enabled and a nearby signboard is detected
-        if (enableAlertsCheckbox.checked) {
-            checkNearbySignboards(coords);
-        }
-    });
+    // Accuracy circle (optional)
+    const accuracyCircle = new ol.geom.Circle(coords, pos.coords.accuracy);
+    accuracyFeature.setGeometry(ol.geom.Polygon.fromCircle(accuracyCircle, 64));
 
-    function checkNearbySignboards(userCoords) {
-        const nearbySigns = allFeatures.filter(feature => {
-            const featureCoords = feature.getGeometry().getCoordinates();
-            const distance = ol.sphere.getDistance(userCoords, featureCoords);
-            return distance <= 20; // 20 meters range
-        });
+    // 20m alert circle (new part)
+    const alertCircle = new ol.geom.Circle(coords, 20); // 20 meters radius
+    const alertRadiusCircle = ol.geom.Polygon.fromCircle(alertCircle, 64); // Convert to polygon
+    alertRadiusFeature.setGeometry(alertRadiusCircle);
 
-        if (nearbySigns.length > 0) {
-            alert('There are nearby signboards within 20 meters!');
-            // Optionally, show details in popup
-            const nearbySign = nearbySigns[0];
-            const properties = nearbySign.getProperties();
-            const imageName = properties.image_name;
-            const currentClass = properties.predicted_class;
-            const imagePath = `data/icons/${currentClass}.png`;
-
-            popup.innerHTML = `
-                <strong>Nearby Sign:</strong><br>
-                ${currentClass}<br>
-                <img src="${imagePath}" alt="${currentClass}" width="100"><br>
-            `;
-            overlay.setPosition(userCoords); // Show popup at user location or signboard location
-            popup.style.display = 'block';
-        }
+    if (!hasCentered) {
+        map.getView().setCenter(coords);
+        hasCentered = true;
     }
 
-    document.getElementById("centerOnLocationBtn").addEventListener("click", () => {
-        const geometry = positionFeature.getGeometry();
-        if (geometry) {
-            const coords = geometry.getCoordinates();
-            map.getView().animate({ center: coords, zoom: 18, duration: 500 });
-        } else {
-            alert("Live location not available yet.");
+    const userLonLat = [pos.coords.longitude, pos.coords.latitude];
+
+    // Check if any features are within the 20m radius
+    allFeatures.forEach((feature) => {
+        const featureCoord = ol.proj.toLonLat(feature.getGeometry().getCoordinates());
+        const distance = getDistanceFromLatLonInMeters(
+            userLonLat[1], userLonLat[0],
+            featureCoord[1], featureCoord[0]
+        );
+
+        const id = feature.getId() || `${featureCoord[0]}_${featureCoord[1]}`;
+        const alertsEnabled = document.getElementById("enableAlerts").checked;
+
+        if (alertsEnabled && distance <= 20 && !alertShownFeatures.has(id)) {
+            alertShownFeatures.add(id);
+            showToast(`🚨 Nearby sign: ${feature.get('predicted_class')} (${Math.round(distance)}m away)`);
         }
+    });
+}, function (err) {
+    console.error("Geolocation error:", err.message);
+    showToast("⚠️ Geolocation error: " + err.message);
+}, { enableHighAccuracy: true });
+
+
+    document.getElementById("centerOnLocationBtn").addEventListener("click", () => {
+    const geometry = positionFeature.getGeometry();
+    if (geometry) {
+        const coords = geometry.getCoordinates();
+        map.getView().animate({ center: coords, zoom: 18, duration: 500 });
+    } else {
+        alert("Live location not available yet.");
+    }
     });
 
 
@@ -297,4 +303,71 @@ map.on('click', function (event) {
         document.getElementById('toggleControls').textContent = document.body.classList.contains("hide-controls") ? "Show Controls" : "Hide Controls";
         map.updateSize();
     });
+
+
+let alertShownFeatures = new Set(); // to avoid duplicate alerts
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 4000);
+}
+
+navigator.geolocation.watchPosition(
+    function (pos) {
+        const coords = ol.proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
+        positionFeature.setGeometry(new ol.geom.Point(coords));
+
+        const accuracyCircle = ol.geom.Polygon.circular(ol.proj.get('EPSG:3857'), coords, pos.coords.accuracy, 64);
+        accuracyFeature.setGeometry(accuracyCircle);
+
+        if (!hasCentered) {
+            map.getView().setCenter(coords);
+            hasCentered = true;
+        }
+
+        const userLonLat = [pos.coords.longitude, pos.coords.latitude];
+
+        allFeatures.forEach((feature) => {
+            const featureCoord = ol.proj.toLonLat(feature.getGeometry().getCoordinates());
+            const distance = getDistanceFromLatLonInMeters(
+                userLonLat[1], userLonLat[0],
+                featureCoord[1], featureCoord[0]
+            );
+
+            const id = feature.getId() || `${featureCoord[0]}_${featureCoord[1]}`;
+
+            const alertsEnabled = document.getElementById("enableAlerts").checked;
+            if (alertsEnabled && distance <= 20 && !alertShownFeatures.has(id)) {
+                alertShownFeatures.add(id);
+                showToast(`🚨 Nearby sign: ${feature.get('predicted_class')} (${Math.round(distance)}m away)`);
+            }
+        });
+    },
+    function (err) {
+        console.error("Geolocation error:", err.message);
+        showToast("⚠️ Geolocation error: " + err.message);
+    },
+    { enableHighAccuracy: true }
+);
+
+// Haversine distance formula
+function getDistanceFromLatLonInMeters(lat1, lon1, lat2, lon2) {
+    const R = 6371e3;
+    const φ1 = lat1 * Math.PI/180;
+    const φ2 = lat2 * Math.PI/180;
+    const Δφ = (lat2-lat1) * Math.PI/180;
+    const Δλ = (lon2-lon1) * Math.PI/180;
+
+    const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+              Math.cos(φ1) * Math.cos(φ2) *
+              Math.sin(Δλ/2) * Math.sin(Δλ/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+    return R * c;
+}
+
 };
